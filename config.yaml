@@ -1,0 +1,21 @@
+house_name: "Your Home"
+title_suffix: "TV Channels"
+channels_csv: "channels.csv"
+output_pdf: "Your_Television_Channels.pdf"
+columns: 4
+balanced_split: true
+margins:
+  left: 20
+  right: 20
+  top: 10
+  bottom: 10
+fonts:
+  header_size: 14
+  header_leading: 16
+  cell_size: 10
+  cell_leading: 10
+  legend_size: 7
+  legend_leading: 8
+cell_left_indent: 36
+legend_line1: "Local|News|Sports|Kids|Faith"
+legend_line2: "Shop|Music|Intl|TV"
