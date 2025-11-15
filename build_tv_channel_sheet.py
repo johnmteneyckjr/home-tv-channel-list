@@ -40,41 +40,46 @@ def load_config(path="config.yaml"):
 
 def load_channels(csv_path):
     channels = []
-    with open(csv_path, newline="") as f:
-        reader = csv.reader(f)
+    with open(csv_path, newline="", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
         for row in reader:
-            if not row or row[0].lower() == "number":
+            number = (row.get("number") or "").strip()
+            code = (row.get("code") or "").strip()
+            description = (row.get("description") or "").strip()
+            if not number or not code:
                 continue
             try:
-                int(row[0])
+                int(number)
             except ValueError:
                 continue
-            number = row[0].strip()
-            name = row[1].strip() if len(row) > 1 else ""
-            channels.append((number, name))
-    return sorted(channels, key=lambda x: int(x[0]))
+            channels.append({
+                "number": number,
+                "code": code,
+                "description": description,
+            })
+    return sorted(channels, key=lambda x: int(x["number"]))
 
 
 # ---------- CATEGORY / COLOR ----------
 
-def classify_desc(num, name):
-    n = name.upper()
-    i = int(num)
+def classify_desc(channel):
+    ref = (channel.get("description") or channel.get("code") or "").upper()
+    i = int(channel["number"])
     if i < 70:
         return "Local"
-    if any(k in n for k in ["CNN", "HLN", "MSNBC", "NEWS", "CSPAN", "CNBC", "OAN", "WEATH"]):
+    if any(k in ref for k in ["CNN", "HLN", "MSNBC", "NEWS", "CSPAN", "CNBC", "OAN", "WEATH"]):
         return "News"
-    if any(k in n for k in ["ESPN", "NFL", "NHL", "MLB", "FOXS1"]):
+    if any(k in ref for k in ["ESPN", "NFL", "NHL", "MLB", "FOXS1"]):
         return "Sports"
-    if any(k in n for k in ["NICK", "DIS", "TOON", "BABY"]):
+    if any(k in ref for k in ["NICK", "DIS", "TOON", "BABY"]):
         return "Kids"
-    if any(k in n for k in ["TBN", "BIBLE", "EWTN", "CTN", "INSP", "3ABN", "VICTR"]):
+    if any(k in ref for k in ["TBN", "BIBLE", "EWTN", "CTN", "INSP", "3ABN", "VICTR"]):
         return "Faith"
-    if any(k in n for k in ["HSN", "QVC", "SHOP", "BUY", "MALL", "SALE", "JTV", "VALU"]):
+    if any(k in ref for k in ["HSN", "QVC", "SHOP", "BUY", "MALL", "SALE", "JTV", "VALU"]):
         return "Shop"
-    if i >= 900 or any(k in n for k in ["AUD", "CD", "LMUSC", "OTTO"]):
+    if i >= 900 or any(k in ref for k in ["AUD", "CD", "LMUSC", "OTTO"]):
         return "Music"
-    if any(k in n for k in ["PRTGS", "VIX", "HITN", "TODOC", "TONOM", "ES24", "ENLC", "SIC", "RTPI"]):
+    if any(k in ref for k in ["PRTGS", "VIX", "HITN", "TODOC", "TONOM", "ES24", "ENLC", "SIC", "RTPI"]):
         return "Intl"
     return "TV"
 
@@ -93,18 +98,18 @@ def color_for(desc):
     }.get(desc, "#000000")
 
 
-def logo_filename(num, code):
-    return f"{num}_{code}.png"
+def logo_filename(channel):
+    return f"{channel['number']}_{channel['code']}.png"
 
 
 def build_logo_lookup(channels, logo_dir):
     lookup = {}
     if not logo_dir:
         return lookup
-    for num, name in channels:
-        path = os.path.join(logo_dir, logo_filename(num, name))
+    for channel in channels:
+        path = os.path.join(logo_dir, logo_filename(channel))
         if os.path.exists(path):
-            lookup[(num, name)] = os.path.abspath(path)
+            lookup[(channel["number"], channel["code"])] = os.path.abspath(path)
     return lookup
 
 
@@ -161,6 +166,8 @@ def build_column_table(channels, cfg, styles, logo_lookup=None, logo_cfg=None):
         fontName=cell_font or styles["Normal"].fontName,
         leftIndent=cfg.get("cell_left_indent", 36),
     )
+    cell_num_size = fonts_cfg.get("cell_number_size", fonts_cfg["cell_size"])
+    cell_name_size = fonts_cfg.get("cell_name_size", fonts_cfg["cell_size"])
 
     legend_style = ParagraphStyle(
         "Leg",
@@ -195,31 +202,48 @@ def build_column_table(channels, cfg, styles, logo_lookup=None, logo_cfg=None):
     rows.append(header_cells)
 
     # Column-major distribution of channels
-    rows_per_col = math.ceil(len(channels) / cols)
+    rows_per_col = math.ceil(len(channels) / cols) if channels else 0
     col_blocks = [
         channels[i * rows_per_col:(i + 1) * rows_per_col]
         for i in range(cols)
     ]
     max_rows = max(len(b) for b in col_blocks) if col_blocks else 0
+    channel_display = cfg.get("channel_display", {})
+    show_desc = channel_display.get("show_description", False)
+    desc_separator = channel_display.get("description_separator", " — ")
+    desc_font_size = channel_display.get("description_font_size", cell_name_size)
 
     for r in range(max_rows):
         row_cells = []
         for c in range(cols):
             if r < len(col_blocks[c]):
-                num, name = col_blocks[c][r]
-                d = classify_desc(num, name)
+                channel = col_blocks[c][r]
+                num = channel["number"]
+                code = escape(channel["code"])
+                desc_text = escape(channel["description"]) if channel.get("description") else ""
+                d = classify_desc(channel)
                 color = color_for(d)
                 logo_html = ""
                 if logo_lookup:
                     display_px = logo_cfg.get("display_px", min(logo_cfg.get("target_px", 48), 48))
-                    logo_path = logo_lookup.get((num, name))
+                    logo_path = logo_lookup.get((channel["number"], channel["code"]))
                     if logo_path:
                         safe_path = escape(str(logo_path), {"'": "&apos;", '"': "&quot;"})
                         logo_html = (
                             f"<img src=\"{safe_path}\" width=\"{display_px}\" "
                             f"height=\"{display_px}\" valign=\"middle\"/> &nbsp;"
                         )
-                html = f"{logo_html}<font color='{color}'><b>{num}</b> {name}</font>"
+                desc_html = ""
+                if show_desc and desc_text:
+                    desc_sep = escape(desc_separator)
+                    desc_html = f"{desc_sep}<font size='{desc_font_size}'>{desc_text}</font>"
+                html = (
+                    f"{logo_html}<font color='{color}'>"
+                    f"<font size='{cell_num_size}'><b>{num}</b></font> "
+                    f"<font size='{cell_name_size}'><b>{code}</b></font>"
+                    f"{desc_html}"
+                    "</font>"
+                )
                 row_cells.append(Paragraph(html, cell_style))
             else:
                 row_cells.append("")
@@ -252,8 +276,8 @@ def build_pdf(cfg_path="config.yaml"):
         page2_channels = channels[cut:]
     else:
         # Fallback: old behavior, split by channel number 399
-        page1_channels = [c for c in channels if int(c[0]) <= 399]
-        page2_channels = [c for c in channels if int(c[0]) > 399]
+        page1_channels = [c for c in channels if int(c["number"]) <= 399]
+        page2_channels = [c for c in channels if int(c["number"]) > 399]
 
     styles = getSampleStyleSheet()
 
