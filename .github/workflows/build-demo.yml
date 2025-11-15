@@ -1,0 +1,31 @@
+name: Build Demo PDF
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build-demo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Build demonstration PDF
+        run: ./ci/build-demo.sh
+
+      - name: Upload demo PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: demo-tv-channel-guide
+          path: outputs/demo_tv_channels.pdf
+          if-no-files-found: error

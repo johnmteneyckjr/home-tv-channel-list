@@ -25,3 +25,24 @@ Features:
 ```bash
 pip install -r requirements.txt
 python build_tv_channel_sheet.py
+```
+
+## Demo build script
+
+To build the demonstration PDF that CI publishes to `./outputs/`:
+
+```bash
+./ci/build-demo.sh
+```
+
+## Optional channel logos
+
+Logo fetching/rendering is powered by `fetch_channel_logos.py`, adapted from the kit in `../channel_logo_fetch_kit.zip`.  
+Set `logos.enabled: true` in `config.yaml` to have `build_tv_channel_sheet.py` fetch and display square PNG logos (stored under `outputs/logos/`).  
+Run the fetcher standalone if you only need the assets:
+
+```bash
+python fetch_channel_logos.py --channels-csv channels.csv --output-dir outputs/logos
+```
+
+If `logos.enabled` is `false`, the builder skips all logo work and sticks with the legacy text-only layout.
