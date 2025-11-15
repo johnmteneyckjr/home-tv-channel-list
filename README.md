@@ -16,7 +16,7 @@ Features:
 ## Files
 
 - `channels.csv` — your channel list:
-  - `number,code`
+  - `number,code,description` (`description` is optional and shown only when enabled in config)
 - `config.yaml` — house- and layout-level config
 - `build_tv_channel_sheet.py` — main script
 
@@ -46,3 +46,15 @@ python fetch_channel_logos.py --channels-csv channels.csv --output-dir outputs/l
 ```
 
 If `logos.enabled` is `false`, the builder skips all logo work and sticks with the legacy text-only layout.
+
+## Channel descriptions
+
+`channels.csv` now supports an optional `description` column.  
+Control whether that third column shows up via `channel_display.show_description` in `config.yaml`.  
+When disabled (the default in the demo config), the sheet renders only channel numbers and call signs.
+
+## Font tuning
+
+All of the key font sizes live under the `fonts` block in `config.yaml`.  
+To independently adjust the channel number vs. channel name sizing, tweak `fonts.cell_number_size` and `fonts.cell_name_size`.  
+Other knobs like `fonts.header_size`, `fonts.legend_size`, and `fonts.cell_leading` let you dial in the final look for your printer/lamination workflow.

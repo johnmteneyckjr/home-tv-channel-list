@@ -14,6 +14,8 @@ fonts:
   header_leading: 16
   header_font: "Helvetica-Bold"
   cell_size: 10
+  cell_number_size: 10
+  cell_name_size: 10
   cell_leading: 10
   cell_font: "Helvetica"
   legend_size: 7
@@ -22,6 +24,10 @@ fonts:
 cell_left_indent: 36
 legend_line1: "Local|News|Sports|Faith"
 legend_line2: "Shop|Music|Intl|TV|Kids"
+channel_display:
+  show_description: false
+  description_separator: " — "
+  description_font_size: 9
 logos:
   enabled: false
   output_dir: "outputs/logos"
