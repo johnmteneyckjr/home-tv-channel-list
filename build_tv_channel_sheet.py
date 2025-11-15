@@ -93,29 +93,36 @@ def build_column_table(channels, cfg, styles):
     cols = cfg.get("columns", 4)
     house_name = cfg.get("house_name", "My House")
     title_suffix = cfg.get("title_suffix", "TV Channels")
+    fonts_cfg = cfg.get("fonts", {})
+    header_font = fonts_cfg.get("header_font")
+    cell_font = fonts_cfg.get("cell_font")
+    legend_font = fonts_cfg.get("legend_font")
 
     # Styles
     hdr_style = ParagraphStyle(
         "Hdr",
         parent=styles["Title"],
         alignment=1,
-        fontSize=cfg["fonts"]["header_size"],
-        leading=cfg["fonts"]["header_leading"],
+        fontSize=fonts_cfg["header_size"],
+        leading=fonts_cfg["header_leading"],
+        fontName=header_font or styles["Title"].fontName,
     )
 
     cell_style = ParagraphStyle(
         "Cell",
         parent=styles["Normal"],
-        fontSize=cfg["fonts"]["cell_size"],
-        leading=cfg["fonts"]["cell_leading"],
+        fontSize=fonts_cfg["cell_size"],
+        leading=fonts_cfg["cell_leading"],
+        fontName=cell_font or styles["Normal"].fontName,
         leftIndent=cfg.get("cell_left_indent", 36),
     )
 
     legend_style = ParagraphStyle(
         "Leg",
         parent=styles["Normal"],
-        fontSize=cfg["fonts"]["legend_size"],
-        leading=cfg["fonts"]["legend_leading"],
+        fontSize=fonts_cfg["legend_size"],
+        leading=fonts_cfg["legend_leading"],
+        fontName=legend_font or styles["Normal"].fontName,
         alignment=1,
     )
 

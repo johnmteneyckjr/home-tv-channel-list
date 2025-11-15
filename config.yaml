@@ -12,10 +12,13 @@ margins:
 fonts:
   header_size: 14
   header_leading: 16
+  header_font: "Helvetica-Bold"
   cell_size: 10
   cell_leading: 10
+  cell_font: "Helvetica"
   legend_size: 7
   legend_leading: 8
+  legend_font: "Helvetica"
 cell_left_indent: 36
-legend_line1: "Local|News|Sports|Kids|Faith"
-legend_line2: "Shop|Music|Intl|TV"
+legend_line1: "Local|News|Sports|Faith"
+legend_line2: "Shop|Music|Intl|TV|Kids"

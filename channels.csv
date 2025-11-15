@@ -1,3 +1,301 @@
 number,code
-2,KCWX
-4,WOAI
+2,Aurora Community Channel
+3,Summit City TV
+4,Cascade Neighborhood Feed
+5,Harbor Open Signal
+6,Pioneer Local Loop
+7,Meadow Guide TV
+8,Solstice Public View
+9,Vivid Main Street TV
+10,Granite Cityline Channel
+11,Voyage Daily Bulletin
+12,Driftwood Community Channel
+13,Frontier City TV
+14,Sterling Neighborhood Feed
+15,Canyon Open Signal
+16,Prairie Local Loop
+17,Skyline Guide TV
+18,Evergreen Public View
+19,Copper Main Street TV
+20,Silver Cityline Channel
+21,Golden Daily Bulletin
+22,Bayside Community Channel
+23,Lakeside City TV
+24,Highland Neighborhood Feed
+25,River Open Signal
+26,Sunset Local Loop
+27,Falcon Guide TV
+28,Orchid Public View
+29,Echo Main Street TV
+30,Nova Cityline Channel
+31,Beacon Daily Bulletin
+32,Liberty Community Channel
+33,Crystal City TV
+34,Zenith Neighborhood Feed
+35,Horizon Open Signal
+36,Atlas Local Loop
+37,Mosaic Guide TV
+38,Timber Public View
+39,Coral Main Street TV
+40,Lagoon Cityline Channel
+41,Phoenix Daily Bulletin
+42,Willow Community Channel
+43,Ridge City TV
+44,Sequoia Neighborhood Feed
+45,Ironwood Open Signal
+46,Summerset Local Loop
+47,Cedar Guide TV
+48,Walnut Public View
+49,Cobalt Main Street TV
+50,Lotus Cityline Channel
+51,Marble Daily Bulletin
+52,Aurora Community Channel
+53,Summit City TV
+54,Cascade Neighborhood Feed
+55,Harbor Open Signal
+56,Pioneer Local Loop
+57,Meadow Guide TV
+58,Solstice Public View
+59,Vivid Main Street TV
+60,Granite Cityline Channel
+61,Voyage Daily Bulletin
+62,Driftwood Community Channel
+63,Frontier City TV
+64,Sterling Neighborhood Feed
+65,Canyon Open Signal
+66,Prairie Local Loop
+67,Skyline Guide TV
+68,Evergreen Public View
+69,Copper Main Street TV
+70,Silver Cityline Channel
+71,Golden Daily Bulletin
+72,Aurora NEWS
+73,Summit NEWS 24
+74,Cascade CNN Desk
+75,Harbor MSNBC Bureau
+76,Pioneer CNBC Wire
+77,Meadow NEWS Pulse
+78,Solstice OAN Current
+79,Vivid CSPAN Forum
+80,Granite HLN Rapid
+81,Voyage WEATH Center
+82,Driftwood NEWS
+83,Frontier NEWS 24
+84,Sterling CNN Desk
+85,Canyon MSNBC Bureau
+86,Prairie CNBC Wire
+87,Skyline NEWS Pulse
+88,Evergreen OAN Current
+89,Copper CSPAN Forum
+90,Silver HLN Rapid
+91,Golden WEATH Center
+92,Bayside NEWS
+93,Lakeside NEWS 24
+94,Highland CNN Desk
+95,River MSNBC Bureau
+96,Sunset CNBC Wire
+97,Falcon NEWS Pulse
+98,Orchid OAN Current
+99,Echo CSPAN Forum
+100,Nova HLN Rapid
+101,Beacon WEATH Center
+102,Liberty NEWS
+103,Crystal NEWS 24
+104,Zenith CNN Desk
+105,Horizon MSNBC Bureau
+106,Atlas CNBC Wire
+107,Mosaic NEWS Pulse
+108,Timber OAN Current
+109,Coral CSPAN Forum
+110,Lagoon HLN Rapid
+111,Phoenix WEATH Center
+112,Aurora ESPN Hub
+113,Summit ESPN Field
+114,Cascade NFL Replay
+115,Harbor NFL Blitz
+116,Pioneer NHL Center
+117,Meadow NHL Ice
+118,Solstice MLB Vault
+119,Vivid MLB Strike
+120,Granite FOXS1 Arena
+121,Voyage FOXS1 Edge
+122,Driftwood ESPN Hub
+123,Frontier ESPN Field
+124,Sterling NFL Replay
+125,Canyon NFL Blitz
+126,Prairie NHL Center
+127,Skyline NHL Ice
+128,Evergreen MLB Vault
+129,Copper MLB Strike
+130,Silver FOXS1 Arena
+131,Golden FOXS1 Edge
+132,Bayside ESPN Hub
+133,Lakeside ESPN Field
+134,Highland NFL Replay
+135,River NFL Blitz
+136,Sunset NHL Center
+137,Falcon NHL Ice
+138,Orchid MLB Vault
+139,Echo MLB Strike
+140,Nova FOXS1 Arena
+141,Beacon FOXS1 Edge
+142,Liberty ESPN Hub
+143,Crystal ESPN Field
+144,Zenith NFL Replay
+145,Horizon NFL Blitz
+146,Atlas NHL Center
+147,Aurora NICK Club
+148,Summit NICK Galaxy
+149,Cascade DIS Kids
+150,Harbor DIS Junior
+151,Pioneer TOON Planet
+152,Meadow TOON Spark
+153,Solstice BABY Bright
+154,Vivid BABY Garden
+155,Granite NICK Club
+156,Voyage NICK Galaxy
+157,Driftwood DIS Kids
+158,Frontier DIS Junior
+159,Sterling TOON Planet
+160,Canyon TOON Spark
+161,Prairie BABY Bright
+162,Skyline BABY Garden
+163,Evergreen NICK Club
+164,Copper NICK Galaxy
+165,Silver DIS Kids
+166,Golden DIS Junior
+167,Bayside TOON Planet
+168,Lakeside TOON Spark
+169,Highland BABY Bright
+170,River BABY Garden
+171,Sunset NICK Club
+172,Falcon NICK Galaxy
+173,Orchid DIS Kids
+174,Echo DIS Junior
+175,Nova TOON Planet
+176,Beacon TOON Spark
+177,Aurora TBN Family
+178,Summit BIBLE Vision
+179,Cascade EWTN Light
+180,Harbor CTN Hope
+181,Pioneer INSP Moment
+182,Meadow 3ABN Praise
+183,Solstice VICTR Faith
+184,Vivid TBN Family
+185,Granite BIBLE Vision
+186,Voyage EWTN Light
+187,Driftwood CTN Hope
+188,Frontier INSP Moment
+189,Sterling 3ABN Praise
+190,Canyon VICTR Faith
+191,Prairie TBN Family
+192,Skyline BIBLE Vision
+193,Evergreen EWTN Light
+194,Copper CTN Hope
+195,Silver INSP Moment
+196,Golden 3ABN Praise
+197,Bayside VICTR Faith
+198,Lakeside TBN Family
+199,Highland BIBLE Vision
+200,River EWTN Light
+201,Sunset CTN Hope
+202,Aurora HSN Market
+203,Summit QVC Style
+204,Cascade SHOP Square
+205,Harbor BUY Network
+206,Pioneer MALL Channel
+207,Meadow SALE Studio
+208,Solstice JTV Jewel
+209,Vivid VALU Picks
+210,Granite HSN Market
+211,Voyage QVC Style
+212,Driftwood SHOP Square
+213,Frontier BUY Network
+214,Sterling MALL Channel
+215,Canyon SALE Studio
+216,Prairie JTV Jewel
+217,Skyline VALU Picks
+218,Evergreen HSN Market
+219,Copper QVC Style
+220,Silver SHOP Square
+221,Golden BUY Network
+222,Bayside MALL Channel
+223,Lakeside SALE Studio
+224,Highland JTV Jewel
+225,River VALU Picks
+226,Sunset HSN Market
+227,Aurora PRTGS World
+228,Summit VIX Noticias
+229,Cascade HITN Cultura
+230,Harbor TODOC Vision
+231,Pioneer TONOM Global
+232,Meadow ES24 Europa
+233,Solstice ENLC Mundo
+234,Vivid SIC Portal
+235,Granite RTPI Relay
+236,Voyage PRTGS World
+237,Driftwood VIX Noticias
+238,Frontier HITN Cultura
+239,Sterling TODOC Vision
+240,Canyon TONOM Global
+241,Prairie ES24 Europa
+242,Skyline ENLC Mundo
+243,Evergreen SIC Portal
+244,Copper RTPI Relay
+245,Silver PRTGS World
+246,Golden VIX Noticias
+247,Bayside HITN Cultura
+248,Lakeside TODOC Vision
+249,Highland TONOM Global
+250,River ES24 Europa
+251,Sunset ENLC Mundo
+252,Aurora Prime TV
+253,Summit Storyverse
+254,Cascade Focus TV
+255,Harbor Living Room
+256,Pioneer Spotlight
+257,Meadow Orbit
+258,Solstice Spectrum
+259,Vivid Pulse
+260,Granite Accent
+261,Voyage Canvas
+262,Driftwood Prime TV
+263,Frontier Storyverse
+264,Sterling Focus TV
+265,Canyon Living Room
+266,Prairie Spotlight
+267,Skyline Orbit
+268,Evergreen Spectrum
+269,Copper Pulse
+270,Silver Accent
+271,Golden Canvas
+272,Bayside Prime TV
+273,Lakeside Storyverse
+274,Highland Focus TV
+275,River Living Room
+276,Sunset Spotlight
+277,Falcon Orbit
+278,Orchid Spectrum
+279,Echo Pulse
+280,Nova Accent
+281,Beacon Canvas
+900,Aurora Audio Loft
+901,Summit Audio Lounge
+902,Cascade Audio Pulse
+903,Harbor Audio Mix
+904,Pioneer Audio Wave
+905,Meadow Audio Garden
+906,Solstice Audio Harbor
+907,Vivid Audio Lab
+908,Granite Audio Studio
+909,Voyage Audio Club
+910,Driftwood Audio Loft
+911,Frontier Audio Lounge
+912,Sterling Audio Pulse
+913,Canyon Audio Mix
+914,Prairie Audio Wave
+915,Skyline Audio Garden
+916,Evergreen Audio Harbor
+917,Copper Audio Lab
+918,Silver Audio Studio
+919,Golden Audio Club
