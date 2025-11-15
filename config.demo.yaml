@@ -1,7 +1,7 @@
-house_name: "Your Home"
+house_name: "Demo Home"
 title_suffix: "TV Channels"
 channels_csv: "channels.csv"
-output_pdf: "Your_Television_Channels.pdf"
+output_pdf: "outputs/demo_tv_channels.pdf"
 columns: 4
 balanced_split: true
 margins:

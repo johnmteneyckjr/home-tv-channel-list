@@ -1,2 +1,4 @@
 reportlab
 PyYAML
+requests
+Pillow

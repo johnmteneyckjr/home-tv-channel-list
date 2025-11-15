@@ -16,11 +16,17 @@ Builds a 2-page, 4-column, accordion-friendly TV channel list from channels.csv.
 
 import csv
 import math
+import os
+import sys
+from xml.sax.saxutils import escape
+
 import yaml  # pip install pyyaml
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Table, TableStyle, PageBreak
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.pagesizes import landscape, letter
 from reportlab.lib import colors
+
+from fetch_channel_logos import fetch_channel_logos
 
 
 # ---------- CONFIG LOADING ----------
@@ -87,9 +93,47 @@ def color_for(desc):
     }.get(desc, "#000000")
 
 
+def logo_filename(num, code):
+    return f"{num}_{code}.png"
+
+
+def build_logo_lookup(channels, logo_dir):
+    lookup = {}
+    if not logo_dir:
+        return lookup
+    for num, name in channels:
+        path = os.path.join(logo_dir, logo_filename(num, name))
+        if os.path.exists(path):
+            lookup[(num, name)] = os.path.abspath(path)
+    return lookup
+
+
+def ensure_logos(cfg, channels):
+    logos_cfg = cfg.get("logos") or {}
+    if not logos_cfg.get("enabled"):
+        return {}, logos_cfg
+
+    output_dir = logos_cfg.get("output_dir", "outputs/logos")
+    target_px = logos_cfg.get("target_px")
+    overrides_csv = logos_cfg.get("overrides_csv")
+
+    # Wrap log lines so they are easy to distinguish from PDF steps
+    def log(msg):
+        print(f"[logos] {msg}")
+
+    fetch_channel_logos(
+        channels_csv=cfg["channels_csv"],
+        overrides_csv=overrides_csv,
+        output_dir=output_dir,
+        target_px=target_px,
+        logger=log,
+    )
+    return build_logo_lookup(channels, output_dir), logos_cfg
+
+
 # ---------- TABLE CONSTRUCTION ----------
 
-def build_column_table(channels, cfg, styles):
+def build_column_table(channels, cfg, styles, logo_lookup=None, logo_cfg=None):
     cols = cfg.get("columns", 4)
     house_name = cfg.get("house_name", "My House")
     title_suffix = cfg.get("title_suffix", "TV Channels")
@@ -97,6 +141,7 @@ def build_column_table(channels, cfg, styles):
     header_font = fonts_cfg.get("header_font")
     cell_font = fonts_cfg.get("cell_font")
     legend_font = fonts_cfg.get("legend_font")
+    logo_cfg = logo_cfg or {}
 
     # Styles
     hdr_style = ParagraphStyle(
@@ -164,7 +209,17 @@ def build_column_table(channels, cfg, styles):
                 num, name = col_blocks[c][r]
                 d = classify_desc(num, name)
                 color = color_for(d)
-                html = f"<font color='{color}'><b>{num}</b> {name}</font>"
+                logo_html = ""
+                if logo_lookup:
+                    display_px = logo_cfg.get("display_px", min(logo_cfg.get("target_px", 48), 48))
+                    logo_path = logo_lookup.get((num, name))
+                    if logo_path:
+                        safe_path = escape(str(logo_path), {"'": "&apos;", '"': "&quot;"})
+                        logo_html = (
+                            f"<img src=\"{safe_path}\" width=\"{display_px}\" "
+                            f"height=\"{display_px}\" valign=\"middle\"/> &nbsp;"
+                        )
+                html = f"{logo_html}<font color='{color}'><b>{num}</b> {name}</font>"
                 row_cells.append(Paragraph(html, cell_style))
             else:
                 row_cells.append("")
@@ -188,6 +243,7 @@ def build_pdf(cfg_path="config.yaml"):
     cfg = load_config(cfg_path)
     channels = load_channels(cfg["channels_csv"])
     total = len(channels)
+    logo_lookup, logos_cfg = ensure_logos(cfg, channels)
 
     # Balanced split across two pages
     if cfg.get("balanced_split", True):
@@ -212,8 +268,8 @@ def build_pdf(cfg_path="config.yaml"):
 
     story = []
 
-    rows1 = build_column_table(page1_channels, cfg, styles)
-    rows2 = build_column_table(page2_channels, cfg, styles)
+    rows1 = build_column_table(page1_channels, cfg, styles, logo_lookup, logos_cfg)
+    rows2 = build_column_table(page2_channels, cfg, styles, logo_lookup, logos_cfg)
 
     page_width, _ = landscape(letter)
     cols = cfg.get("columns", 4)
@@ -244,4 +300,5 @@ def build_pdf(cfg_path="config.yaml"):
 
 
 if __name__ == "__main__":
-    build_pdf()
+    config_path = sys.argv[1] if len(sys.argv) > 1 else "config.yaml"
+    build_pdf(config_path)
