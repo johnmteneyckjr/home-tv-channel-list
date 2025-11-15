@@ -1,40 +1,201 @@
 number,code,description
-2,KACC,
-3,KSUM,
-4,KCND,
-5,KHBR,
-6,KRIV,
-7,KEVN,
-8,KMSP,
-9,KLKD,
-10,KFBC,
-11,KMKT,
-12,KMUS,
-13,KINT,
-14,KCTV,
-15,KDOC,
-16,KPRM,
-17,KVUE,
-18,KSVC,
-19,KHIS,
-20,KSTC,
-21,KBAY,
-22,KLSN,
-23,KHLD,
-24,KROP,
-25,KSUN,
-26,KBKN,
-27,KORG,
-28,KORC,
-29,KECH,
-30,KNVA,
-31,KBCN,
-32,KLIB,
-33,KCRY,
-34,KZTH,
-35,KHZN,
-36,KATV,
-37,KMSC,
-38,KTMB,
-39,KCOR,
-40,KLAG,
+2,WCBS,CBS 2 New York
+4,WNBC,NBC 4 New York
+5,WNYW,FOX 5 New York
+7,WABC,ABC 7 New York
+9,WWOR,My 9 New York
+11,WPIX,CW 11 New York
+13,WNET,THIRTEEN PBS
+21,WLIW,WLIW 21 PBS
+25,WNYE,NYC Life 25
+31,WPXN,ION Television New York
+41,WXTV,Univision 41 Nueva York
+47,WNJU,Telemundo 47 New York
+55,WLNY,WLNY 55 Long Island
+68,WFUT,UniMás 68 Newark
+75,NJTV,NJ PBS Newark
+70,HSN,HSN
+71,QVC,QVC
+73,QVC3,QVC3
+82,FETV,FETV
+83,JTV,JTV
+85,EPIC,EPIC
+91,BVWST,BVWST
+96,BVF&L,BVF&L
+105,USA,USA
+106,TVLND,TVLND
+107,CMDY,CMDY
+108,LIFE,LIFE
+109,LMN,LMN
+110,FOOD,FOOD
+112,HGTV,HGTV
+113,COOK,COOK
+114,E!,E!
+115,HOLLY,HOLLY
+117,POP,POP
+118,A&E,A&E
+120,HIST,HIST
+122,SYFY,SYFY
+125,FXX,FXX
+126,SUND,SUND
+128,WE,WE
+129,BRAVO,BRAVO
+130,HDNMV,HDNMV
+131,AMC,AMC
+133,IFC,IFC
+136,FX,FX
+138,TNT,TNT
+139,TBS,TBS
+140,ESPN,ESPN
+141,ESPNU,ESPNU
+142,ESNWS,ESNWS
+143,ESPN2,ESPN2
+150,FOXS1,FOXS1
+153,MLBSZ,MLBSZ
+154,NFL,NFL
+155,NFLRZ,NFLRZ
+160,MTV,MTV
+161,MTV2,MTV2
+162,VH1,VH1
+164,FUSE,FUSE
+165,GFAM,GFAM
+166,CMT,CMT
+167,AXS,AXS
+170,NICK,NICK
+171,NICKW,NICKW
+172,DISE,DISE
+173,DISW,DISW
+176,TOON,TOON
+177,TOONW,TOONW
+180,FRFM,FRFM
+182,DISC,DISC
+183,TLC,TLC
+184,APL,APL
+187,HMYS,HMYS
+192,ID,ID
+196,TRV,TRV
+197,NTGEO,NTGEO
+200,CNN,CNN
+202,HLN,HLN
+205,FXNWS,FXNWS
+206,FOXB,FOXB
+207,NWSNA,NWSNA
+208,CNBC,CNBC
+209,MSNBC,MSNBC
+210,CSPAN,CSPAN
+211,CSPN2,CSPN2
+212,OAN,OAN
+215,WN,WN
+216,NEWSX,NEWSX
+217,GRIT,GRIT
+222,FOXWE,FOXWE
+226,HSN2,HSN2
+232,COWBY,COWBY
+233,COWGL,COWGL
+239,LAFF,LAFF
+240,JUSTC,JUSTC
+241,PARAM,PARAM
+242,TRU,TRU
+243,FM,FM
+245,BUZZR,BUZZR
+246,MT,MT
+248,GLIV,GLIV
+250,ION,ION
+255,QVC2,QVC2
+256,BIBLE,BIBLE
+257,SBN,SBN
+258,TBNI,TBNI
+259,INSP,INSP
+260,TBN,TBN
+261,EWTN,EWTN
+262,CTN,CTN
+263,DYSTR,DYSTR
+264,IMPCT,IMPCT
+265,VICTR,VICTR
+266,TCT,TCT
+267,3ABN,3ABN
+268,BYUTV,BYUTV
+269,FSTV,FSTV
+274,NRBTV,NRBTV
+289,COMET,COMET
+291,START,START
+299,REELZ,REELZ
+357,DABLW,DABLW
+359,BOUNC,BOUNC
+360,GRIO,GRIO
+369,MTVL,MTVL
+373,GETTV,GETTV
+374,AWE,AWE
+375,CATCM,CATCM
+376,METON,METON
+396,OTDCH,OTDCH
+399,FDTV,FDTV
+475,NHL,NHL
+476,MLB,MLB
+478,MLBNA,MLBNA
+823,BABY1,BABY1
+72,VALU,generic/house/mosaic; script will create a clean text placeholder if no official logo found
+75,RENEW,generic/house/mosaic; script will create a clean text placeholder if no official logo found
+76,DEAL,generic/house/mosaic; script will create a clean text placeholder if no official logo found
+81,ICTV,generic/house/mosaic; script will create a clean text placeholder if no official logo found
+84,BUYTV,BUYTV
+86,MALL,generic/house/mosaic; script will create a clean text placeholder if no official logo found
+87,SHOP,generic/house/mosaic; script will create a clean text placeholder if no official logo found
+90,BVH&S,BVH&S
+92,BVCLS,BVCLS
+93,BVMOV,BVMOV
+94,BVRL,BVRL
+95,BVC&I,BVC&I
+97,BVSN,BVSN
+98,BVV,BVV
+100,BOOST,generic/house/mosaic; script will create a clean text placeholder if no official logo found
+101,SCAP4,generic/house/mosaic; script will create a clean text placeholder if no official logo found
+102,INFO,generic/house/mosaic; script will create a clean text placeholder if no official logo found
+104,VALU,generic/house/mosaic; script will create a clean text placeholder if no official logo found
+123,MALL,generic/house/mosaic; script will create a clean text placeholder if no official logo found
+198,SCAP2,generic/house/mosaic; script will create a clean text placeholder if no official logo found
+199,SCAP1,generic/house/mosaic; script will create a clean text placeholder if no official logo found
+203,BITV,generic/house/mosaic; script will create a clean text placeholder if no official logo found
+204,BOOST,generic/house/mosaic; script will create a clean text placeholder if no official logo found
+218,BINGE,generic/house/mosaic; script will create a clean text placeholder if no official logo found
+219,AMVO,generic/house/mosaic; script will create a clean text placeholder if no official logo found
+220,MALL,generic/house/mosaic; script will create a clean text placeholder if no official logo found
+221,EXTRA,generic/house/mosaic; script will create a clean text placeholder if no official logo found
+223,RENEW,generic/house/mosaic; script will create a clean text placeholder if no official logo found
+225,SALE,generic/house/mosaic; script will create a clean text placeholder if no official logo found
+228,YOUTV,generic/house/mosaic; script will create a clean text placeholder if no official logo found
+229,MSG4,generic/house/mosaic; script will create a clean text placeholder if no official logo found
+230,ICTV,generic/house/mosaic; script will create a clean text placeholder if no official logo found
+275,YOUTV,generic/house/mosaic; script will create a clean text placeholder if no official logo found
+276,SHOP,generic/house/mosaic; script will create a clean text placeholder if no official logo found
+277,RENEW,generic/house/mosaic; script will create a clean text placeholder if no official logo found
+278,DEAL,generic/house/mosaic; script will create a clean text placeholder if no official logo found
+282,VALU,generic/house/mosaic; script will create a clean text placeholder if no official logo found
+283,BUYTV,BUYTV
+288,EXTRA,generic/house/mosaic; script will create a clean text placeholder if no official logo found
+293,HERIC,generic/house/mosaic; script will create a clean text placeholder if no official logo found
+298,MVSHG,generic/house/mosaic; script will create a clean text placeholder if no official logo found
+349,INFO,generic/house/mosaic; script will create a clean text placeholder if no official logo found
+500,INFO,generic/house/mosaic; script will create a clean text placeholder if no official logo found
+603,PRTGS,generic/house/mosaic; script will create a clean text placeholder if no official logo found
+866,TODOC,generic/house/mosaic; script will create a clean text placeholder if no official logo found
+867,TONOM,generic/house/mosaic; script will create a clean text placeholder if no official logo found
+868,ES24,generic/house/mosaic; script will create a clean text placeholder if no official logo found
+870,VIX,VIX
+880,HITN,HITN
+881,TDV,generic/house/mosaic; script will create a clean text placeholder if no official logo found
+883,VALU,generic/house/mosaic; script will create a clean text placeholder if no official logo found
+888,ENLC,generic/house/mosaic; script will create a clean text placeholder if no official logo found
+923,AUD01,generic/house/mosaic; script will create a clean text placeholder if no official logo found
+924,AUD02,generic/house/mosaic; script will create a clean text placeholder if no official logo found
+925,AUD03,generic/house/mosaic; script will create a clean text placeholder if no official logo found
+926,AUD04,generic/house/mosaic; script will create a clean text placeholder if no official logo found
+927,AUD05,generic/house/mosaic; script will create a clean text placeholder if no official logo found
+928,AUD06,generic/house/mosaic; script will create a clean text placeholder if no official logo found
+929,AUD07,generic/house/mosaic; script will create a clean text placeholder if no official logo found
+930,AUD08,generic/house/mosaic; script will create a clean text placeholder if no official logo found
+931,AUD09,generic/house/mosaic; script will create a clean text placeholder if no official logo found
+933,AUD10,generic/house/mosaic; script will create a clean text placeholder if no official logo found
+934,AUD11,generic/house/mosaic; script will create a clean text placeholder if no official logo found
+935,AUD12,generic/house/mosaic; script will create a clean text placeholder if no official logo found
+936,AUD13,generic/house/mosaic; script will create a clean text placeholder if no official logo found
